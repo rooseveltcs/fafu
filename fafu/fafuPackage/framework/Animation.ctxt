@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Animation()
+comment1.params=image\ duration
+comment1.target=void\ addFrame(java.awt.Image,\ long)
+comment2.params=elapsedTime
+comment2.target=void\ update(long)
+comment3.params=
+comment3.target=java.awt.Image\ getImage()
+comment4.params=i
+comment4.target=Animation.AnimFrame\ getFrame(int)
+numComments=5

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ update()
+comment1.params=
+comment1.target=int\ getSpeedX()
+comment2.params=
+comment2.target=int\ getCenterX()
+comment3.params=
+comment3.target=int\ getCenterY()
+comment4.params=
+comment4.target=Background\ getBg()
+comment5.params=speedX
+comment5.target=void\ setSpeedX(int)
+comment6.params=centerX
+comment6.target=void\ setCenterX(int)
+comment7.params=centerY
+comment7.target=void\ setCenterY(int)
+comment8.params=bg
+comment8.target=void\ setBg(Background)
+numComments=9
