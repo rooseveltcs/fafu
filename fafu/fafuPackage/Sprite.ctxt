@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ update()
+comment0.text=\r\n\ updates\ sprite\ to\ set\ its\ speed\ which\ also\ sets\ background\ scrolling\ speed\r\n\ also\ sets\ the\ jumping\ animation\ and\ values\ of\ sprite\r\n
 comment1.params=
 comment1.target=void\ moveRight()
 comment10.params=
@@ -39,8 +40,10 @@ comment5.params=
 comment5.target=void\ stop()
 comment6.params=
 comment6.target=void\ jump()
+comment6.text=\r\n\ makes\ Sprite\ jump\ and\ sets\ things\ in\ main\ to\ change\ its\ animation\ into\ jumping\r\n
 comment7.params=
 comment7.target=int\ getCenterX()
+comment7.text=\r\n\ Below,\ exactly\ as\ the\ method\ name\ means\r\n
 comment8.params=
 comment8.target=int\ getCenterY()
 comment9.params=

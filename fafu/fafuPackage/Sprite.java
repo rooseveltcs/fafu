@@ -4,14 +4,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
- * Write a description of class Sprite here.
+ * Sprite class that constructs the sprite and allows it to run, jump, duck/slide
  * 
- * @author (your name) 
- * @version (a version number or a date)
  */
 public class Sprite
 {
-    final double JUMPSPEED = -31;
+    final double JUMPSPEED = -21;
     final int MOVESPEED = 5;
     public int GROUND = 382;
 
@@ -32,6 +30,10 @@ public class Sprite
     private Background bg1 = Main.getBg1();
     private Background bg2 = Main.getBg2();
 
+    /**
+     * updates sprite to set its speed which also sets background scrolling speed
+     * also sets the jumping animation and values of sprite
+     */
     public void update() {
         // Moves Character or Scrolls Background accordingly.
         if(speedX<35){
@@ -91,6 +93,9 @@ public class Sprite
     private void stop() {
     }
 
+    /**
+     * makes Sprite jump and sets things in main to change its animation into jumping
+     */
     public void jump() {
         if (jumped == false) {
             speedY = JUMPSPEED;
@@ -98,6 +103,9 @@ public class Sprite
         }
     }
 
+    /**
+     * Below, exactly as the method name means
+     */
     public int getCenterX() {
         return centerX;
     }

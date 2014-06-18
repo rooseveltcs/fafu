@@ -2,12 +2,17 @@ package fafuPackage;
 
 
 /**
- * Write a description of class Crate here.
+ * Crate class that inherits the obstacle class
+ * constructor for crate
+ * a specific type of obstacle
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Eric
  */
+
 public class Crate extends Obstacles{
+    /**
+     * constructor for a crate
+     */
     public Crate(int centerX) {
         setCenterX(centerX);
     }

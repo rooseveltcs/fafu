@@ -12,10 +12,12 @@ import java.awt.Image;
 import java.net.URL;
 
 /**
- * Write a description of class Main here.
+ * Main class of the game that runs in an applet.
+ * Includes methods that creates an  applet, draws the game, and makes the game run.
+ * Creates a game of a running sprite at lower left corner of applet.
+ * Sprite will run forever until hits a obstacle(not working)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Eric Lin, Fafu, Michael
  */
 public class Main extends Applet implements Runnable, KeyListener{
     private Sprite fafu;
@@ -31,6 +33,10 @@ public class Main extends Applet implements Runnable, KeyListener{
     public static int temp =0;
     private boolean alive = true;
 
+    /**
+     * create, init an applet, set Background as black(doesn't really do anything as it sreplaced)
+     * sets up pictures, speed of the game.
+     */
     @Override
     public void init(){
         setSize(800,480);
@@ -54,11 +60,11 @@ public class Main extends Applet implements Runnable, KeyListener{
         character4 = getImage(base, "character4.png");
         character5 = getImage(base, "character5.png");
         character6 = getImage(base, "character6.png");
-//         character7 = getImage(base, "character07.png");
-//         character8 = getImage(base, "character08.png");
-//         character9 = getImage(base, "character09.png");
-//         character10 = getImage(base, "character10.png");
-//         character11 = getImage(base, "character11.png");
+        //         character7 = getImage(base, "character07.png");
+        //         character8 = getImage(base, "character08.png");
+        //         character9 = getImage(base, "character09.png");
+        //         character10 = getImage(base, "character10.png");
+        //         character11 = getImage(base, "character11.png");
 
         characterDown = getImage(base, "down.png");
         characterJumped = getImage(base, "jumped.png");
@@ -76,11 +82,11 @@ public class Main extends Applet implements Runnable, KeyListener{
             anim.addFrame(character4, characterSpeed);
             anim.addFrame(character5, characterSpeed);
             anim.addFrame(character6, characterSpeed);
-//             anim.addFrame(character7, characterSpeed);
-//             anim.addFrame(character8, characterSpeed);
-//             anim.addFrame(character9, characterSpeed);
-//             anim.addFrame(character10, characterSpeed);
-//             anim.addFrame(character11, characterSpeed);
+            //             anim.addFrame(character7, characterSpeed);
+            //             anim.addFrame(character8, characterSpeed);
+            //             anim.addFrame(character9, characterSpeed);
+            //             anim.addFrame(character10, characterSpeed);
+            //             anim.addFrame(character11, characterSpeed);
             characterSpeed -= 1;
             frames+= 7;
         }
@@ -92,16 +98,20 @@ public class Main extends Applet implements Runnable, KeyListener{
         animTop.addFrame(character4, characterSpeed);
         animTop.addFrame(character5, characterSpeed);
         animTop.addFrame(character6, characterSpeed);
-//         animTop.addFrame(character7, characterSpeed);
-//         animTop.addFrame(character8, characterSpeed);
-//         animTop.addFrame(character9, characterSpeed);
-//         animTop.addFrame(character10, characterSpeed);
-//         animTop.addFrame(character11, characterSpeed);
+        //         animTop.addFrame(character7, characterSpeed);
+        //         animTop.addFrame(character8, characterSpeed);
+        //         animTop.addFrame(character9, characterSpeed);
+        //         animTop.addFrame(character10, characterSpeed);
+        //         animTop.addFrame(character11, characterSpeed);
 
         currentSprite = animTop.getImage();
         background = getImage(base, "background.png");
     }
 
+    /**
+     * makes background, sprite, obstacles, and thread
+     * Starts thread
+     */
     @Override
     public void start(){
         bg1 = new Background(0, 0);
@@ -121,6 +131,12 @@ public class Main extends Applet implements Runnable, KeyListener{
     public void destroy(){
     }
 
+    /**
+     * runs the program/applet
+     * runs forever due to while loop until death(doesn't stop)
+     * calls update methods to redraw the pictures
+     * sets framerate
+     */
     @Override
     public void run(){
         while(alive == true){
@@ -160,7 +176,11 @@ public class Main extends Applet implements Runnable, KeyListener{
             isAlive();
         }
     }
-
+    
+    /**
+     * update method for drawing the pictures
+     * calls paint method to draw
+     */
     @Override
     public void update(Graphics g){
         if (image == null) {
@@ -174,12 +194,18 @@ public class Main extends Applet implements Runnable, KeyListener{
 
         g.drawImage(image, 0, 0, this);
     }
-
+   
+    /**
+     * calls update method of the animations to update individual pictures for animation
+     */
     public void animate(){
         anim.update(10);
         animTop.update(10);
     }
-
+    
+    /**
+     * paints picture
+     */
     @Override
     public void paint(Graphics g){
         g.drawImage(background, bg1.getBgX(), bg1.getBgY(), this);
@@ -187,10 +213,14 @@ public class Main extends Applet implements Runnable, KeyListener{
         g.drawImage(currentSprite, (int)fafu.getCenterX()-300, (int)fafu.getCenterY()-200, this);
         //-200 for boxes to make them disappear off screen
         g.drawImage(crate, (int)crate1.getCenterX()-300, (int)crate1.getCenterY() - 200, this);
-        g.drawImage(crate, (int)crate2.getCenterX()-300, (int)crate2.getCenterY() - 200, this);
+        //g.drawImage(crate, (int)crate2.getCenterX()-300, (int)crate2.getCenterY() - 200, this);
         g.drawRect((int)fafu.rect.getX(), (int)fafu.rect.getY(), (int)fafu.rect.getWidth(), (int)fafu.rect.getHeight());
-    }
 
+    }
+    
+    /**
+     * keyListener that does something when something is pressed
+     */
     @Override
     public void keyPressed(KeyEvent e){
         switch (e.getKeyCode()) {
@@ -213,6 +243,9 @@ public class Main extends Applet implements Runnable, KeyListener{
         }
     }
 
+    /**
+     * Same thing as above, but listens for released keys
+     */
     @Override
     public void keyReleased(KeyEvent e){
         switch (e.getKeyCode()) {
@@ -246,12 +279,18 @@ public class Main extends Applet implements Runnable, KeyListener{
     public void keyTyped(KeyEvent e){
     }
 
+    /**
+     * Sees if player is still alive(does not work, numbers/position...etc all not correct and only looks like that on screen)
+     */
     public void isAlive(){
-        if(Math.abs(fafu.getCenterX() - crate1.getCenterX())<= 90){
+        if(Math.abs(fafu.getCenterX() - crate1.getCenterX())<= 230 && Math.abs(fafu.getCenterX() - crate1.getCenterX())<= 330 && Math.abs(fafu.getCenterY() - crate1.getCenterY()) <= 100){
             this.alive = false;
         }
     }
 
+    /**
+     * gets the Background
+     */
     public static Background getBg1() {
         return bg1;
     }

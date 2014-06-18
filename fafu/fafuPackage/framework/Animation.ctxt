@@ -1,12 +1,17 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Animation()
+comment0.text=\r\n\ constructor\ for\ an\ Animation\r\n
 comment1.params=image\ duration
 comment1.target=void\ addFrame(java.awt.Image,\ long)
+comment1.text=\r\n\ adds\ a\ frame\ of\ picture\ and\ its\ duration\ on\ screen\r\n\ similar\ to\ the\ add\ method\ of\ ArrayList,\ but\ adds\ a\ duration\ that\ makes\ the\ picture\ stay\ on\ the\ applet\ for\ a\ duration\ of\ time\r\n
 comment2.params=elapsedTime
 comment2.target=void\ update(long)
+comment2.text=\r\n\ updates\ the\ picture\ of\ the\ animation\r\n\ sets\ the\ picture\ to\ show\ depending\ on\ its\ elapsed\ time/frame\r\n
 comment3.params=
 comment3.target=java.awt.Image\ getImage()
+comment3.text=\r\n\ gets\ the\ image\ of\ a\ picture\ in\ the\ Animation/ArrayList\ to\ be\ drawn\ in\ Main\r\n
 comment4.params=i
 comment4.target=Animation.AnimFrame\ getFrame(int)
+comment4.text=\r\n\ same\ as\ get(int\ something),\ returns\ a\ picture\ at\ that\ position\ of\ the\ Animation\r\n
 numComments=5
